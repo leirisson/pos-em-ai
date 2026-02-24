@@ -8,10 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
     "dependencies": {
-    "@tensorflow/tfjs-node": "4.22"
+    "@tensorflow/tfjs": "4.22"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "module"
 }

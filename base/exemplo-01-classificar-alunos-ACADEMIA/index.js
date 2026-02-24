@@ -1,4 +1,4 @@
-import tf from '@tensorflow/tfjs-node'
+import tf from '@tensorflow/tfjs'
 
 const dadosNormalizados = [
 //  idade  azul  verde  verm  sp   rio  manaus

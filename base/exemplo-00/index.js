@@ -1,4 +1,4 @@
-import tf from '@tensorflow/tfjs-node';
+import tf from '@tensorflow/tfjs';
 
 // Exemplo de pessoas para treino (cada pessoa com idade, cor e localização)
 // const pessoas = [
