@@ -1,0 +1,48 @@
+{
+  "labels_ordem": ["premium", "medium", "basic"],
+  "features_ordem": ["idade_norm", "cor_vermelho", "cor_verde", "cor_azul", "loc_norte", "loc_sul", "loc_centro"],
+  "bruto": {
+    "treino": [
+      { "idade": 18, "cor": "azul", "local": "norte", "label": "basic" },
+      { "idade": 28, "cor": "verde", "local": "sul", "label": "medium" },
+      { "idade": 42, "cor": "vermelho", "local": "centro", "label": "premium" },
+      { "idade": 36, "cor": "verde", "local": "norte", "label": "medium" },
+      { "idade": 30, "cor": "azul", "local": "centro", "label": "basic" },
+      { "idade": 55, "cor": "vermelho", "local": "sul", "label": "premium" }
+    ],
+    "teste": [
+      { "idade": 25, "cor": "vermelho", "local": "norte", "label": "basic" },
+      { "idade": 47, "cor": "verde", "local": "sul", "label": "premium" },
+      { "idade": 33, "cor": "azul", "local": "centro", "label": "medium" }
+    ]
+  },
+  "normalizado": {
+    "metadados": { "min_idade": 18, "max_idade": 55, "criterio": "minmax_treino" },
+    "xs_treino": [
+      [0.000, 0, 0, 1, 1, 0, 0],
+      [0.270, 0, 1, 0, 0, 1, 0],
+      [0.649, 1, 0, 0, 0, 0, 1],
+      [0.486, 0, 1, 0, 1, 0, 0],
+      [0.324, 0, 0, 1, 0, 0, 1],
+      [1.000, 1, 0, 0, 0, 1, 0]
+    ],
+    "ys_treino": [
+      [0, 0, 1],
+      [0, 1, 0],
+      [1, 0, 0],
+      [0, 1, 0],
+      [0, 0, 1],
+      [1, 0, 0]
+    ],
+    "xs_teste": [
+      [0.189, 1, 0, 0, 1, 0, 0],
+      [0.784, 0, 1, 0, 0, 1, 0],
+      [0.405, 0, 0, 1, 0, 0, 1]
+    ],
+    "ys_teste": [
+      [0, 0, 1],
+      [1, 0, 0],
+      [0, 1, 0]
+    ]
+  }
+}
