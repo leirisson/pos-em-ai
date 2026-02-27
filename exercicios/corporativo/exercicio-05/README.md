@@ -23,3 +23,19 @@ Entregáveis
 - exercicio.js com sua solução.
 - dados.js com treino, teste e novas amostras.
 - Este README com passos e conceitos.
+Tabela de referência (dados brutos + tempo normalizado)
+
+| Tempo (min) | Tipo     | Categoria | Prioridade | tempo_norm |
+|-------------|----------|-----------|------------|------------|
+| 120         | vip      | suporte   | critico    | 1.000      |
+| 30          | standard | pagamento | normal     | 0.182      |
+| 10          | free     | tecnico   | baixo      | 0.000      |
+| 90          | vip      | pagamento | critico    | 0.727      |
+| 25          | standard | tecnico   | normal     | 0.136      |
+| 110         | vip      | tecnico   | critico    | 0.909      |
+
+Fórmula de normalização (min–max com estatísticas do treino):
+
+```
+tempo_norm = (tempo - 10) / (120 - 10)
+```

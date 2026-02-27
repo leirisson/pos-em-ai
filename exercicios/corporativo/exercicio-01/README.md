@@ -25,3 +25,19 @@ Entregáveis
 - exercicio.js com sua solução.
 - dados.js utilizado no treino e teste.
 - Este README com passos, conceitos e decisões.
+Tabela de referência (dados brutos + normalizado)
+
+| Faturamento (R$) | Setor       | Região | Segmento    | faturamento_norm |
+|------------------|-------------|--------|-------------|------------------|
+| 120              | tecnologia  | norte  | smb         | 0.000            |
+| 900              | varejo      | sul    | enterprise  | 0.886            |
+| 300              | servicos    | centro | individual  | 0.205            |
+| 400              | varejo      | centro | smb         | 0.318            |
+| 980              | tecnologia  | sul    | enterprise  | 0.977            |
+| 200              | servicos    | norte  | individual  | 0.091            |
+
+Fórmula de normalização (min–max com estatísticas do treino):
+
+```
+faturamento_norm = (faturamento - 120) / (1000 - 120)
+```

@@ -22,3 +22,19 @@ Entregáveis
 - exercicio.js com sua solução.
 - dados.js utilizado.
 - Este README com passos e conceitos.
+Tabela de referência (dados brutos + normalizado)
+
+| Engajamento | Origem    | País    | Classe | engajamento_norm |
+|-------------|-----------|---------|--------|------------------|
+| 30          | organico  | brasil  | frio   | 0.143            |
+| 55          | pago      | mexico  | morno  | 0.500            |
+| 80          | referral  | chile   | quente | 0.857            |
+| 90          | organico  | brasil  | quente | 1.000            |
+| 20          | pago      | chile   | frio   | 0.000            |
+| 60          | referral  | brasil  | morno  | 0.571            |
+
+Fórmula de normalização (min–max com estatísticas do treino):
+
+```
+engajamento_norm = (engajamento - 20) / (90 - 20)
+```

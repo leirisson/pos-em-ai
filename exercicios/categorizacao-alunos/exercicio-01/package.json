@@ -1,0 +1,17 @@
+{
+  "name": "exercicio-01",
+  "version": "1.0.0",
+  "description": "Exercício 01 — Exemplo Guiado (dados normalizados e não normalizados)",
+  "main": "dados.js",
+  "scripts": {
+    "start": "node --no-warnings --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+    "dependencies": {
+    "@tensorflow/tfjs": "4.22"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
