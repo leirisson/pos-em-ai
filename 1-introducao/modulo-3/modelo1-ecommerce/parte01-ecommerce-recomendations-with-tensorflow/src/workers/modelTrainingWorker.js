@@ -1,6 +1,12 @@
 import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js';
 import { workerEvents } from '../events/constants.js';
 
+//contexto global
+let _globalCtx = {}
+
+// definindo os pesos
+
+
 
 // 🔢 Normalize continuous values (price, age) to 0–1 range
 // Why? Keeps all features balanced so no one dominates training
@@ -8,7 +14,7 @@ import { workerEvents } from '../events/constants.js';
 // Example: price=129.99, minPrice=39.99, maxPrice=199.99 → 0.56
 const normalize = (value, min, max) => (value - min) / ((max - min) || 1)
 
-async function makeContext(catalog, users) {
+function makeContext(catalog, users) {
     // primeiro pegar todas as idades
     const ages = users.map(u => u.age);
     const prices = catalog.map(p => p.price)
@@ -23,13 +29,13 @@ async function makeContext(catalog, users) {
     const colors = [...new Set(catalog.map(p => p.color))]
     const caterogires = [...new Set(catalog.map(p => p.category))]
 
-    const colorIndex = Object.entries(
+    const colorIndex = Object.fromEntries(
         colors.map((color, index) => {
             return [color, index]
         })
     )
 
-    const categoriesIndex = Object.entries(
+    const categoriesIndex = Object.fromEntries(
         caterogires.map((category, index) => {
             return [category, index]
         })
@@ -85,12 +91,16 @@ async function trainModel({ users }) {
 
 
     // criando o contexto
-    const context = await makeContext(catalog, users)
-    debugger
+    const context =  makeContext(catalog, users)
+
+    // adicionando no contexto global
+    _globalCtx = context
+
     // =============================
     postMessage({ type: workerEvents.progressUpdate, progress: { progress: 100 } });
     postMessage({ type: workerEvents.trainingComplete });
 }
+
 function recommend({ user }) {
 
     // postMessage({
