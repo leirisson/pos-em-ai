@@ -14,72 +14,149 @@ let _globalCtx = {}
 // Example: price=129.99, minPrice=39.99, maxPrice=199.99 → 0.56
 const normalize = (value, min, max) => (value - min) / ((max - min) || 1)
 
-function makeContext(catalog, users) {
-    // primeiro pegar todas as idades
-    const ages = users.map(u => u.age);
-    const prices = catalog.map(p => p.price)
+// function makeContext(catalog, users) {
+//     // primeiro pegar todas as idades
+//     const ages = users.map(u => u.age);
+//     const prices = catalog.map(p => p.price)
 
-    // pegando a maior idade e a menor idade
+//     // pegando a maior idade e a menor idade
+//     const minAge = Math.min(...ages)
+//     const maxAge = Math.max(...ages)
+
+//     const minPrice = Math.min(...prices)
+//     const maxPrice = Math.max(...prices)
+
+//     const colors = [...new Set(catalog.map(p => p.color))]
+//     const caterogires = [...new Set(catalog.map(p => p.category))]
+
+//     const colorIndex = Object.fromEntries(
+//         colors.map((color, index) => {
+//             return [color, index]
+//         })
+//     )
+
+//     const categoriesIndex = Object.fromEntries(
+//         caterogires.map((category, index) => {
+//             return [category, index]
+//         })
+//     )
+
+//     // computar a media de idade dos compradores por produto
+//     // ajuda personalizar
+//     const midAge = (minAge + maxAge) / 2 // ✅ É simplesmente a média entre min e max (ponto médio)
+//     const ageSums = {} // soma das idades
+//     const ageCounts = {}
+
+//     users.forEach(user => {
+//         user.purchases.forEach(product => {
+//             ageSums[product.name] = (ageSums[product.name] || 0) + user.age
+//             ageCounts[product.name] = (ageCounts[product.name] || 0) + 1
+//         })
+//     });
+
+//     const productAvgAgeNorm = Object.fromEntries(
+//         catalog.map(product => {
+//             const avg = ageCounts[product.name] ? ageSums[product.name] / ageCounts[product.name] : midAge
+//             return [product.name, normalize(avg, minAge, maxAge)]
+//         })
+//     )
+
+
+//     return {
+//         catalog,
+//         users,
+//         colorIndex,
+//         categoriesIndex,
+//         minAge, 
+//         maxAge,
+//         minPrice,
+//         maxPrice,
+//         numcategories: caterogires.length,
+//         numColors: colors.length,
+//         dimensions: 2 + caterogires.length + colors.length // numero de dimenções 
+//     }
+
+
+
+// }
+
+// construindo o contexto
+
+// primeira etapada de tudo 
+function makeContext(catalog, users) {
+
+    // capturando as idades e preços 
+    const ages = users.map(user => user.age)
+    const price = catalog.map(product => product.price)
+
+    // capturando a maior idade e a menor idade
     const minAge = Math.min(...ages)
     const maxAge = Math.max(...ages)
 
-    const minPrice = Math.min(...prices)
-    const maxPrice = Math.max(...prices)
+    // capturando o maior preço e menor preço
+    const minPrice = Math.min(...price)
+    const maxPrice = Math.max(...price)
 
-    const colors = [...new Set(catalog.map(p => p.color))]
-    const caterogires = [...new Set(catalog.map(p => p.category))]
+    //cores unicas e categorias unicas sem repetição
+    const colors = [...new Set(catalog.map(product => product.color))]
+    const categories = [...new Set(catalog.map(product => product.category))]
 
-    const colorIndex = Object.fromEntries(
+    // vamos mapear os indicies
+    const colorIndex = Object.entries(
         colors.map((color, index) => {
             return [color, index]
         })
     )
 
-    const categoriesIndex = Object.fromEntries(
-        caterogires.map((category, index) => {
+    const categoriesIndex = Object.entries(
+        categories.map((category, index) => {
             return [category, index]
         })
     )
 
-    // computar a media de idade dos compradores por produto
-    // ajuda personalizar
-    const midAge = (minAge + maxAge) / 2 // divide por dois pois são dois pesos: menorIdade + MaiorIdade / 2
-    const ageSums = {} // soma das idades
-    const ageCounts = {}
+    // computador a media de compradores de idade pro produto
+    //(ajuda a personalizar)
+
+    const midAge = (minAge + maxAge) / 2;
+    const ageSum = {}
+    const ageConuts = {}
+
 
     users.forEach(user => {
         user.purchases.forEach(product => {
-            ageSums[product.name] = (ageSums[product.name] || 0) + user.age
-            ageCounts[product.name] = (ageCounts[product.name] || 0) + 1
+            ageSum[product.name] = (ageSum[product.name] || 0) + user.age
+            ageConuts[product.name] = (ageConuts[product.name] || 0) + 1
         })
     });
 
+    // media do produto por idade
     const productAvgAgeNorm = Object.fromEntries(
         catalog.map(product => {
-            const avg = ageCounts[product.name] ? ageSums[product.name] / ageCounts[product.name] : midAge
+            const avg = ageConuts[product.name] ?
+                ageSum[product.name] / ageConuts[product.name] :
+                midAge
+
             return [product.name, normalize(avg, minAge, maxAge)]
         })
-    )
 
+
+    )
 
     return {
         catalog,
         users,
         colorIndex,
         categoriesIndex,
-        minAge, 
+        minAge,
         maxAge,
         minPrice,
         maxPrice,
-        numcategories: caterogires.length,
-        numColors: colors.length,
-        dimentions: 2 + caterogires.length + colors.length // numero de dimenções 
+        numCategories: categories.length,
+        numcolors: colors.length,
+        dimension: 2 + categories.length + colors.length
     }
 
-
-
 }
-
 
 async function trainModel({ users }) {
     console.log('Training model with users:', users);
@@ -91,8 +168,8 @@ async function trainModel({ users }) {
 
 
     // criando o contexto
-    const context =  makeContext(catalog, users)
-
+    const context = makeContext(catalog, users)
+    debugger
     // adicionando no contexto global
     _globalCtx = context
 
