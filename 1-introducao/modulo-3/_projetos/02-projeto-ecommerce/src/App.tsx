@@ -355,6 +355,7 @@ function App() {
     }
 
     run();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // ← [] significa "roda só uma vez, quando o componente monta"
 
   return (

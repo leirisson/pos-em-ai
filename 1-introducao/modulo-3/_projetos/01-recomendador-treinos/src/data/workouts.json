@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Caminhada 30min",
+    "type": "cardio",
+    "duration": 30,
+    "intensity": "baixa",
+    "focus": "perda de peso"
+  },
+  {
+    "id": 2,
+    "name": "HIIT 30min",
+    "type": "cardio",
+    "duration": 30,
+    "intensity": "alta",
+    "focus": "perda de peso"
+  },
+  {
+    "id": 3,
+    "name": "Musculação Upper",
+    "type": "musculacao",
+    "duration": 60,
+    "intensity": "alta",
+    "focus": "ganho de massa"
+  },
+  {
+    "id": 4,
+    "name": "Musculação Lower",
+    "type": "musculacao",
+    "duration": 60,
+    "intensity": "alta",
+    "focus": "ganho de massa"
+  },
+  {
+    "id": 5,
+    "name": "Yoga Relaxante",
+    "type": "flexibility",
+    "duration": 45,
+    "intensity": "baixa",
+    "focus": "bem-estar"
+  },
+  {
+    "id": 6,
+    "name": "Pilates Core",
+    "type": "flexibility",
+    "duration": 50,
+    "intensity": "media",
+    "focus": "bem-estar"
+  },
+  {
+    "id": 7,
+    "name": "Corrida Intervalada",
+    "type": "cardio",
+    "duration": 40,
+    "intensity": "alta",
+    "focus": "condicionamento"
+  },
+  {
+    "id": 8,
+    "name": "Alongamento Total",
+    "type": "flexibility",
+    "duration": 20,
+    "intensity": "baixa",
+    "focus": "bem-estar"
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "name": "Ana",
+    "age": 28,
+    "weight": 62,
+    "goal": "perda de peso",
+    "level": "iniciante",
+    "completedWorkouts": [
+      { "name": "Caminhada 30min", "rating": 5 },
+      { "name": "Yoga Relaxante", "rating": 4 },
+      { "name": "Alongamento Total", "rating": 5 }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Carlos",
+    "age": 35,
+    "weight": 88,
+    "goal": "ganho de massa",
+    "level": "intermediario",
+    "completedWorkouts": [
+      { "name": "Musculação Upper", "rating": 5 },
+      { "name": "Musculação Lower", "rating": 5 },
+      { "name": "HIIT 30min", "rating": 3 }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Beatriz",
+    "age": 22,
+    "weight": 55,
+    "goal": "bem-estar",
+    "level": "iniciante",
+    "completedWorkouts": [
+      { "name": "Yoga Relaxante", "rating": 5 },
+      { "name": "Pilates Core", "rating": 5 },
+      { "name": "Alongamento Total", "rating": 4 }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Rafael",
+    "age": 42,
+    "weight": 95,
+    "goal": "perda de peso",
+    "level": "intermediario",
+    "completedWorkouts": [
+      { "name": "HIIT 30min", "rating": 4 },
+      { "name": "Corrida Intervalada", "rating": 5 },
+      { "name": "Caminhada 30min", "rating": 3 }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Juliana",
+    "age": 31,
+    "weight": 68,
+    "goal": "condicionamento",
+    "level": "avancado",
+    "completedWorkouts": [
+      { "name": "Corrida Intervalada", "rating": 5 },
+      { "name": "HIIT 30min", "rating": 5 },
+      { "name": "Musculação Upper", "rating": 4 }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Marcos",
+    "age": 25,
+    "weight": 75,
+    "goal": "ganho de massa",
+    "level": "iniciante",
+    "completedWorkouts": [
+      { "name": "Musculação Upper", "rating": 4 },
+      { "name": "Musculação Lower", "rating": 4 },
+      { "name": "Alongamento Total", "rating": 3 }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Fernanda",
+    "age": 38,
+    "weight": 70,
+    "goal": "bem-estar",
+    "level": "intermediario",
+    "completedWorkouts": [
+      { "name": "Pilates Core", "rating": 5 },
+      { "name": "Yoga Relaxante", "rating": 5 },
+      { "name": "Caminhada 30min", "rating": 4 }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Diego",
+    "age": 29,
+    "weight": 82,
+    "goal": "condicionamento",
+    "level": "avancado",
+    "completedWorkouts": [
+      { "name": "HIIT 30min", "rating": 5 },
+      { "name": "Corrida Intervalada", "rating": 5 },
+      { "name": "Musculação Upper", "rating": 5 }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Patricia",
+    "age": 45,
+    "weight": 65,
+    "goal": "perda de peso",
+    "level": "iniciante",
+    "completedWorkouts": [
+      { "name": "Caminhada 30min", "rating": 5 },
+      { "name": "Alongamento Total", "rating": 4 },
+      { "name": "Pilates Core", "rating": 4 }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Bruno",
+    "age": 33,
+    "weight": 90,
+    "goal": "ganho de massa",
+    "level": "avancado",
+    "completedWorkouts": [
+      { "name": "Musculação Upper", "rating": 5 },
+      { "name": "Musculação Lower", "rating": 5 },
+      { "name": "Corrida Intervalada", "rating": 4 }
+    ]
+  }
+]
