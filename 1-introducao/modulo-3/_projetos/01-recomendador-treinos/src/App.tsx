@@ -1,4 +1,3 @@
- 
 import { useState, useEffect } from "react";
 import "./App.css";
 
@@ -44,26 +43,46 @@ function App() {
     const maxWeight = Math.min(...weights);
     const minDuration = Math.min(...durations);
     const maxDuration = Math.max(...durations);
-    
+
     // Categorias únicas
-    const types = [...new Set(workout.map((w) => w.type))]
-    const intensites = [...new Set(workout.map((w) => w.intensity))]
-    const focus = [...new Set(workout.map((w) => w.focus))]
+    const types = [...new Set(workout.map((w) => w.type))];
+    const intensites = [...new Set(workout.map((w) => w.intensity))];
+    const focus = [...new Set(workout.map((w) => w.focus))];
     const goals = [...new Set(user.map((u) => u.goal))];
     const levels = [...new Set(user.map((u) => u.level))];
-    
+
     // indices
-    const typeIndex      = Object.fromEntries(types.map((type, index) => [type, index]))
-    const intensityIndex = Object.fromentries(intensites.map((intensite, index) => [intensite, index]))
-    const focusIndex     = Object.fromEntries(focus.map((focu, index) => [focu, index]))
-    const goalIndex      = Object.fromEntries(goals.map((goal, index) => [goal, index]))
-    const levelIndex     = Object.fromEntries(levels.map((level, index) => [level, index]))
-
-
+    const typeIndex = Object.fromEntries(
+      types.map((type, index) => [type, index]),
+    );
+    const intensityIndex = Object.fromEntries(
+      intensites.map((intensite, index) => [intensite, index]),
+    );
+    const focusIndex = Object.fromEntries(
+      focus.map((focu, index) => [focu, index]),
+    );
+    const goalIndex = Object.fromEntries(
+      goals.map((goal, index) => [goal, index]),
+    );
+    const levelIndex = Object.fromEntries(
+      levels.map((level, index) => [level, index]),
+    );
 
     // média de idade por treino
-    
-     
+    const midAge = (minAge + maxAge) / 2;
+    const ageSum = {} as Record<string, number>;
+    const ageCounts = {} as Record<string, number>;
+
+
+    user.forEach((user) => {
+      user.completedWorkouts.map((workout) => {
+        console.log(workout)
+        ageSum[workout.name] = (ageSum[workout.name] || 0) + user.age;
+        ageCounts[workout.name] = (ageCounts[workout.name] || 0) + 1;
+      });
+    });
+
+  
   }
 
   useEffect(() => {
@@ -79,13 +98,15 @@ function App() {
       setUsers(usersJson);
       setWorkouts(workoutJson);
 
+
       // só depois prepara e treina
       // criar o contexto
       // treinar o modelo
       // recomendar
 
-      makeContext(workoutJson,usersJson)
-     
+      makeContext(workoutJson, usersJson);
+ 
+
       setLoading(false);
     }
 
